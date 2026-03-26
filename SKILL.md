@@ -1,6 +1,6 @@
 ---
 name: aftercall
-description: Analyze post-call materials such as recordings, transcripts, meeting notes, therapy sessions, study calls, coaching calls, and voice notes. Use when a user asks for aftercall or after-call help: transcribe a call, optionally label speakers, summarize what was discussed, extract decisions/action items/owners, draft a follow-up message, export notes to Telegram or Obsidian, or reflect on themes after a conversation.
+description: "Analyze post-call materials such as recordings, transcripts, meeting notes, therapy sessions, study calls, coaching calls, and voice notes. Use when a user asks for aftercall or after-call help: transcribe a call, optionally label speakers, summarize what was discussed, extract decisions/action items/owners, draft a follow-up message, export notes to Telegram or Obsidian, or reflect on themes after a conversation."
 ---
 
 # aftercall
