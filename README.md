@@ -59,6 +59,82 @@
 - Obsidian, если хочешь экспорт в заметки
 - Telegram workflow, если хочешь удобные короткие summary для чатов
 
+## Установка — для человека
+
+### Вариант 1: установить в текущий workspace агента
+
+1. Скачай репозиторий `aftercall-skill` с GitHub.
+2. Переименуй папку в `aftercall`, если после скачивания она называется `aftercall-skill`.
+3. Положи её в папку:
+
+```bash
+<workspace>/skills/aftercall/
+```
+
+Пример:
+
+```bash
+~/.openclaw/workspace/skills/aftercall/
+```
+
+4. Начни новую сессию OpenClaw или перезапусти агент.
+5. Проверь, что skill виден:
+
+```bash
+openclaw skills list
+openclaw skills info aftercall
+openclaw skills check
+```
+
+### Вариант 2: установить как shared skill для всех агентов
+
+Положи папку `aftercall` сюда:
+
+```bash
+~/.openclaw/skills/aftercall/
+```
+
+Так skill будет доступен как shared skill, а не только внутри одного workspace.
+
+## Полная установка со всеми фишками
+
+Если хочешь, чтобы работало **всё**, а не только разбор готовых transcript-файлов:
+
+1. Установи сам skill `aftercall`
+2. Установи `openai-whisper`, чтобы агент мог транскрибировать аудио и видео
+
+Пример установки whisper skill:
+
+```bash
+clawhub install openai-whisper
+```
+
+3. Проверь видимость skill через:
+
+```bash
+openclaw skills list
+openclaw skills info aftercall
+openclaw skills check
+```
+
+4. После этого можно использовать:
+- `/aftercall`
+- запросы вроде `Разбери этот созвон`
+- transcript-анализ
+- audio/video transcription
+- follow-up generation
+- Obsidian / Telegram / task-list export
+- speaker-aware transcription (best effort)
+
+## Что должен делать агент после установки
+
+После установки агент должен работать так:
+
+1. Если пользователь прислал аудио/видео без transcript — сначала сделать транскрибацию через `openai-whisper`, если он доступен.
+2. Если transcript сырой или пользователь хочет понимать, кто говорил — предложить `speaker-aware transcription`.
+3. Если нужен быстрый результат — не перегружать лишними шагами.
+4. На выходе отдавать полезный after-call результат: summary, decisions, owners, next steps, open questions, follow-up или экспорт в нужный формат.
+
 ## Примеры запросов
 
 - `Разбери этот созвон и собери итоги`
